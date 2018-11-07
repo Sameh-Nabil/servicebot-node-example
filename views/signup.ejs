@@ -1,0 +1,41 @@
+<html>
+
+<body>
+    <% include ./header %>
+    <h1>Signup</h1>
+    <div id="servicebot-request-form"></div>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script src="https://js.servicebot.io/js/servicebot-checkout-embed.js" type="text/javascript"></script>
+                <script  type="text/javascript">
+
+                let signup = function(response) {
+                    let token = response.token
+                    console.log(response);
+                    return fetch("/login",
+                        {
+                            method: "POST",
+                            headers: {"content-type": "application/json"},
+                            credentials : "include",
+                            body: JSON.stringify({token})
+                        }).then(response => {
+                        if(!response.error){
+                            window.location = "/profile";
+                        }
+                    }).catch(error => {
+                        console.error(error);
+                    });
+                }
+
+                    Servicebot.Checkout({
+                        templateId : "<%= templateId %>",
+                        paymentStructureTemplateId: "<%= paymentStructureTemplateId %>",
+                        url : "<%= servicebotUrl %>",
+                        selector : document.getElementById('servicebot-request-form'),
+                        handleResponse : signup,
+                        forceCard : false, //set to true if you want credit card to be a required field for the customer, even for free trials
+                        setPassword : true //set to true if you want customer to fill out a password
+                    })
+                </script>
+
+</body>
+</html>

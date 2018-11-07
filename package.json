@@ -1,0 +1,32 @@
+{
+  "name": "servicebot-node-example",
+  "version": "1.0.0",
+  "description": "an example integration with servicebot and nodejs + express",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/service-bot/servicebot-node-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/service-bot/servicebot-node-example/issues"
+  },
+  "homepage": "https://github.com/service-bot/servicebot-node-example#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
+}
